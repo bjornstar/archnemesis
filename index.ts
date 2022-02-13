@@ -3,33 +3,33 @@ function keys<T extends PropertyKey>(o: Record<T, unknown>): T[] {
 }
 
 const basicOrgans = {
-  'Toxic': { contents: ['Generic', 'Gems'], },
-  'Chaosweaver': { contents: ['Gems'] },
-  'Frostweaver': { contents: ['Armour'] },
-  'Permafrost': { contents: ['Generic', 'Armour'], },
-  'Hasted': { contents: ['Generic'] },
-  'Deadeye': { contents: ['Armour', 'Trinkets'], },
-  'Bombardier': { contents: ['Weapon', 'Armour'], },
-  'Flameweaver': { contents: ['Weapon'] },
-  'Incendiary': { contents: ['Generic', 'Weapon'], },
   'Arcane Buffer': { contents: ['Essences'] },
-  'Echoist': { contents: ['Generic', 'Currency'], },
-  'Stormweaver': { contents: ['Trinkets'] },
-  'Dynamo': { contents: ['Generic', 'Trinkets'], },
-  'Bonebreaker': { contents: ['Generic', 'Weapon'], },
-  'Bloodletter': { contents: ['Weapon', 'Trinkets'], },
-  'Steel-infused': { contents: ['Weapon'] },
-  'Gargantuan': { contents: ['Currency'] },
   'Berserker': { contents: ['Uniques'] },
-  'Sentinel': { contents: ['Armour', 'Armour'], },
-  'Juggernaut': { contents: ['Harbinger'] },
-  'Vampiric': { contents: ['Fossils'] },
-  'Overcharged': { contents: ['Trinkets', 'Trinkets'], },
-  'Soul Conduit': { contents: ['Maps'] },
-  'Opulent': { contents: [] },
-  'Malediction': { contents: ['DivinationCards'] },
+  'Bloodletter': { contents: ['Weapon', 'Trinkets'], },
+  'Bombardier': { contents: ['Weapon', 'Armour'], },
+  'Bonebreaker': { contents: ['Generic', 'Weapon'], },
+  'Chaosweaver': { contents: ['Gems'] },
   'Consecrator': { contents: ['Fragments'] },
+  'Deadeye': { contents: ['Armour', 'Trinkets'], },
+  'Dynamo': { contents: ['Generic', 'Trinkets'], },
+  'Echoist': { contents: ['Generic', 'Currency'], },
+  'Flameweaver': { contents: ['Weapon'] },
   'Frenzied': { contents: ['Generic', 'Uniques'], },
+  'Frostweaver': { contents: ['Armour'] },
+  'Gargantuan': { contents: ['Currency'] },
+  'Hasted': { contents: ['Generic'] },
+  'Incendiary': { contents: ['Generic', 'Weapon'], },
+  'Juggernaut': { contents: ['Harbinger'] },
+  'Malediction': { contents: ['DivinationCards'] },
+  'Opulent': { contents: [] },
+  'Overcharged': { contents: ['Trinkets', 'Trinkets'], },
+  'Permafrost': { contents: ['Generic', 'Armour'], },
+  'Sentinel': { contents: ['Armour', 'Armour'], },
+  'Soul Conduit': { contents: ['Maps'] },
+  'Steel-infused': { contents: ['Weapon'] },
+  'Stormweaver': { contents: ['Trinkets'] },
+  'Toxic': { contents: ['Generic', 'Gems'], },
+  'Vampiric': { contents: ['Fossils'] },
 } as const
 
 type BasicOrganMap = typeof basicOrgans
@@ -39,42 +39,42 @@ const basicOrganList = keys(basicOrgans)
 const isBasicOrgan = (id: unknown): id is BasicOrganId => basicOrganList.includes(id as BasicOrganId)
 
 const recipeOrgans = {
-  'Heralding Minions': { contents: ['Fragments', 'Fragments' ], requires: [ 'Dynamo', 'Arcane Buffer'] },
-  'Empowering Minions': { contents: ['Blight', 'Ritual' ], requires: [ 'Necromancer', 'Executioner', 'Gargantuan'] },
+  'Abberath-touched': { contents: ['Trinkets', 'Trinkets', 'Maps'], requires: ['Flame Strider', 'Frenzied', 'Rejuvenating'] },
+  'Arakaali-touched': { contents: ['DivinationCards'], requires: ['Corpse Detonator', 'Entangler', 'Assassin'] },
   'Assassin': { contents: ['Currency', 'Currency'], requires: [ 'Deadeye', 'Vampiric'] },
-  'Trickster': { contents: ['Currency', 'Uniques', 'DivinationCards' ], requires: [ 'Overcharged', 'Assassin', 'Echoist'] },
+  'Brine King-touched': { contents: ['Armour', 'Armour', 'Armour'], requires: ['Ice Prison', 'Storm Strider', 'Heralding Minions'] },
+  'Corpse Detonator': { contents: ['DivinationCards', 'DivinationCards'], requires: [ 'Necromancer', 'Incendiary'] },
+  'Corrupter': { contents: ['Abyss', 'Abyss'], requires: [ 'Bloodletter', 'Chaosweaver'] },
+  'Crystal-skinned': { contents: ['Harbinger', 'Harbinger'	], requires: [ 'Permafrost', 'Rejuvenating', 'Berserker'] },
+  'Drought Bringer': { contents: ['Labyrinth', 'Labyrinth'	], requires: [ 'Malediction', 'Deadeye'] },
+  'Effigy': { contents: ['DivinationCards', 'DivinationCards'], requires: [ 'Hexer', 'Malediction', 'Corrupter'] },
+  'Empowered Elements': { contents: ['Uniques', 'Uniques'], requires: ['Evocationist', 'Steel-infused', 'Chaosweaver'] },
+  'Empowering Minions': { contents: ['Blight', 'Ritual' ], requires: [ 'Necromancer', 'Executioner', 'Gargantuan'] },
+  'Entangler': { contents: ['Fossils', 'Fossils'	], requires: [ 'Toxic', 'Bloodletter'] },
+  'Evocationist': { contents: ['Generic', 'Weapon', 'Armour', 'Trinkets'], requires: [ 'Flameweaver', 'Frostweaver', 'Stormweaver'] },
+  'Executioner': { contents: ['Legion', 'Breach'	], requires: [ 'Frenzied', 'Berserker'] },
+  'Flame Strider': { contents: ['Weapon', 'Weapon', 'Weapon'], requires: [ 'Flameweaver', 'Hasted'] },
+  'Frost Strider': { contents: ['Armour', 'Armour', 'Armour'], requires: [ 'Frostweaver', 'Hasted'] },
+  'Heralding Minions': { contents: ['Fragments', 'Fragments' ], requires: [ 'Dynamo', 'Arcane Buffer'] },
+  'Hexer': { contents: ['Essences', 'Essences'	], requires: [ 'Chaosweaver', 'Echoist'] },
+  'Ice Prison': { contents: ['Armour', 'Armour'], requires: [ 'Permafrost', 'Sentinel'] },
+  'Innocence-touched': { contents: ['Currency', 'Currency', 'Currency'], requires: ['Lunaris-touched', 'Solaris-touched', 'Mirror Image', 'Mana Siphoner'] },
+  'Invulnerable': { contents: ['Delirium', 'Metamorphosis'	], requires: [ 'Sentinel', 'Juggernaut', 'Consecrator'] },
+  'Kitava-touched': { contents: ['Generic'], requires: ['Tukohama-touched', 'Abberath-touched', 'Corrupter', 'Corpse Detonator'] },
+  'Lunaris-touched': { contents: ['Uniques'], requires: ['Invulnerable', 'Frost Strider', 'Empowering Minions'] },
+  'Magma Barrier': { contents: ['Weapon', 'Weapon'], requires: [ 'Incendiary', 'Bonebreaker'] },
+  'Mana Siphoner': { contents: ['Trinkets', 'Trinkets'], requires: [ 'Consecrator', 'Dynamo'] },
+  'Mirror Image': { contents: ['Scarabs'], requires: ['Echoist', 'Soul Conduit'] },
   'Necromancer': { contents: ['Generic'], requires: ['Bombardier', 'Overcharged'] },
   'Rejuvenating': { contents: ['Currency'], requires: [ 'Gargantuan', 'Vampiric'] },
-  'Executioner': { contents: ['Legion', 'Breach'	], requires: [ 'Frenzied', 'Berserker'] },
-  'Hexer': { contents: ['Essences', 'Essences'	], requires: [ 'Chaosweaver', 'Echoist'] },
-  'Drought Bringer': { contents: ['Labyrinth', 'Labyrinth'	], requires: [ 'Malediction', 'Deadeye'] },
-  'Entangler': { contents: ['Fossils', 'Fossils'	], requires: [ 'Toxic', 'Bloodletter'] },
+  'Shakari-touched': { contents: ['Uniques'], requires: ['Entangler', 'Soul Eater', 'Drought Bringer'] },
+  'Solaris-touched': { contents: ['Scarabs'], requires: ['Invulnerable', 'Magma Barrier', 'Empowering Minions'] },
+  'Soul Eater': { contents: ['Maps', 'Maps'], requires: ['Soul Conduit', 'Necromancer', 'Gargantuan'] },
+  'Storm Strider': { contents: ['Trinkets', 'Trinkets', 'Trinkets'], requires: [ 'Stormweaver', 'Hasted'] },
   'Temporal Bubble': { contents: ['Heist', 'Expedition'	], requires: [ 'Juggernaut', 'Hexer', 'Arcane Buffer'] },
   'Treant Horde': { contents: ['Generic'], requires: ['Toxic', 'Sentinel', 'Steel-infused'] },
-  'Frost Strider': { contents: ['Armour', 'Armour', 'Armour'], requires: [ 'Frostweaver', 'Hasted'] },
-  'Ice Prison': { contents: ['Armour', 'Armour'], requires: [ 'Permafrost', 'Sentinel'] },
-  'Soul Eater': { contents: ['Maps', 'Maps'], requires: ['Soul Conduit', 'Necromancer', 'Gargantuan'] },
-  'Flame Strider': { contents: ['Weapon', 'Weapon', 'Weapon'], requires: [ 'Flameweaver', 'Hasted'] },
-  'Corpse Detonator': { contents: ['DivinationCards', 'DivinationCards'], requires: [ 'Necromancer', 'Incendiary'] },
-  'Evocationist': { contents: ['Generic', 'Weapon', 'Armour', 'Trinkets'], requires: [ 'Flameweaver', 'Frostweaver', 'Stormweaver'] },
-  'Magma Barrier': { contents: ['Weapon', 'Weapon'], requires: [ 'Incendiary', 'Bonebreaker'] },
-  'Mirror Image': { contents: ['Scarabs'], requires: ['Echoist', 'Soul Conduit'] },
-  'Storm Strider': { contents: ['Trinkets', 'Trinkets', 'Trinkets'], requires: [ 'Stormweaver', 'Hasted'] },
-  'Mana Siphoner': { contents: ['Trinkets', 'Trinkets'], requires: [ 'Consecrator', 'Dynamo'] },
-  'Corrupter': { contents: ['Abyss', 'Abyss'], requires: [ 'Bloodletter', 'Chaosweaver'] },
-  'Invulnerable': { contents: ['Delirium', 'Metamorphosis'	], requires: [ 'Sentinel', 'Juggernaut', 'Consecrator'] },
-  'Crystal-skinned': { contents: ['Harbinger', 'Harbinger'	], requires: [ 'Permafrost', 'Rejuvenating', 'Berserker'] },
-  'Empowered Elements': { contents: ['Uniques', 'Uniques'], requires: ['Evocationist', 'Steel-infused', 'Chaosweaver'] },
-  'Effigy': { contents: ['DivinationCards', 'DivinationCards'], requires: [ 'Hexer', 'Malediction', 'Corrupter'] },
-  'Lunaris-touched': { contents: ['Uniques'], requires: ['Invulnerable', 'Frost Strider', 'Empowering Minions'] },
-  'Solaris-touched': { contents: ['Scarabs'], requires: ['Invulnerable', 'Magma Barrier', 'Empowering Minions'] },
-  'Arakaali-touched': { contents: ['DivinationCards'], requires: ['Corpse Detonator', 'Entangler', 'Assassin'] },
-  'Brine King-touched': { contents: ['Armour', 'Armour', 'Armour'], requires: ['Ice Prison', 'Storm Strider', 'Heralding Minions'] },
+  'Trickster': { contents: ['Currency', 'Uniques', 'DivinationCards' ], requires: [ 'Overcharged', 'Assassin', 'Echoist'] },
   'Tukohama-touched': { contents: ['Weapon', 'Weapon', 'Fragments'], requires: ['Bonebreaker', 'Executioner', 'Magma Barrier'] },
-  'Abberath-touched': { contents: ['Trinkets', 'Trinkets', 'Maps'], requires: ['Flame Strider', 'Frenzied', 'Rejuvenating'] },
-  'Shakari-touched': { contents: ['Uniques'], requires: ['Entangler', 'Soul Eater', 'Drought Bringer'] },
-  'Innocence-touched': { contents: ['Currency', 'Currency', 'Currency'], requires: ['Lunaris-touched', 'Solaris-touched', 'Mirror Image', 'Mana Siphoner'] },
-  'Kitava-touched': { contents: ['Generic'], requires: ['Tukohama-touched', 'Abberath-touched', 'Corrupter', 'Corpse Detonator'] },
 } as const
 
 type RecipeOrganMap = typeof recipeOrgans
@@ -131,16 +131,18 @@ const inventory: Inventory = {
   'Vampiric': [76, 81],
 }
 
-const checkInventory = (id: RecipeOrganId, inventory: Inventory): Partial<Record<BasicOrganId, boolean>> => {
-  const { requires } = organs[id] as RecipeOrgan
+const wantToMake = (targetId: RecipeOrganId, inventory: Inventory): any => {
+  const { requires } = organs[targetId] as RecipeOrgan
 
-  return requires.reduce<Partial<Record<BasicOrganId, boolean>>>((r, organId: IngredientOrganId) => {
-    if (isBasicOrgan(organId) || inventory[organId]?.length) {
-      return { ...r, [organId]: !!inventory[organId]?.length }
-    }
+  return {
+    [targetId]: requires.reduce<Partial<Record<BasicOrganId, boolean>>>((r, organId: IngredientOrganId) => {
+      if (isBasicOrgan(organId) || inventory[organId]?.length) {
+        return { ...r, [organId]: !!inventory[organId]?.length }
+      }
 
-    return { ...r, ...checkInventory(organId, inventory) }
-  }, {})
+      return { ...r, ...wantToMake(organId, inventory) }
+    }, {})
+  }
 }
 
-console.log(checkInventory('Kitava-touched', inventory))
+console.log(JSON.stringify(wantToMake('Innocence-touched', inventory), null, 2))
